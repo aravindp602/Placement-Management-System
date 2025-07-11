@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placements Infobase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header a{
+            font-size: larger;
+            color: #fff;
+            text-decoration:none;
+        }
+
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+
+        /* Styled buttons */
+        button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+        img{
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    img:hover{
+        border-radius: 30px;
+        box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+
+    }
+    #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        
+    #overlay img{
+        height:100%;
+        width:auto;
+    }
+
+    #popup-content {
+        max-width: 80%;
+        max-height: 80%;
+        margin-left:200px;
+        margin-top:20px;
+
+    }
+    
+    #popup-content table{
+        margin-left:0px;
+    }
+
+    .tweet-box {
+    display: flex;
+    flex-direction: row;
+    height:500px;
+    width:400px;
+    border-radius:20px;
+    border-radius:15px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 50px;
+    }
+
+    .tweet-content {
+    flex: 1;
+    }
+
+    .tweet-content table{
+        margin-left:100px;
+        border-spacing:10px;
+    }
+
+    .tweet-author {
+    font-weight: bold;
+    margin-left:50px;
+    font-size:70px;
+    margin-left:40px;
+    margin-bottom: 5px;
+    }
+
+    .tweet-text {
+    font-size: 14px;
+    line-height: 1.5;
+    }
+
+    /* Optional customization */
+
+    .tweet-text a {
+    color: #007bff;
+    text-decoration: none;
+    }
+
+    .tweet-text a:hover {
+    text-decoration: underline;
+    }
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Student Placements KnowledgeBase</h1>
+        <a href="login.html">Home Page</a>
+    </header>
+    
+
+    <button onclick="showTable('table1')">Coimbatore</button>
+    <button onclick="showTable('table2')">Amritapuri</button>
+    <button onclick="showTable('table3')">Banglore</button>
+
+    <main>
+        <table id="table1">
+            <tbody>
+
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Package Amount</th>
+                        <th>Company Details</th>
+                        <th>Interests</th>
+                    </tr>
+                </thead>
+            
+                <tr>
+                    <td onclick="openPopup('image5.jpg')">CB.EN.U411001</td>
+                    <td>Arjun Kumar</td>
+                    <td>₹8,80,000</td>
+                    <td>Future Tech Solutions</td>
+                    <td>Cybersecurity</td>
+                </tr>
+                <tr>
+                    <td>CB.EN.U411002</td>
+                    <td>Ayesha Singh</td>
+                    <td>₹7,60,000</td>
+                    <td>Innovate IT Services</td>
+                    <td>Mobile App Development</td>
+                </tr>
+                <tr>
+                    <td>CB.EN.U411003</td>
+                    <td>Chandan Brown</td>
+                    <td>₹8,20,000</td>
+                    <td>Data Dynamics</td>
+                    <td>Big Data Analytics</td>
+                </tr>
+                <tr>
+                    <td>CB.EN.U411004</td>
+                    <td>Divya Taylor</td>
+                    <td>₹7,20,000</td>
+                    <td>CodeCrafters Inc.</td>
+                    <td>Web Design</td>
+                </tr>
+                <tr>
+                    <td>CB.EN.U411005</td>
+                    <td>Eshaan Wilson</td>
+                    <td>₹9,00,000</td>
+                    <td>InnoSoft Solutions</td>
+                    <td>Cloud Computing</td>
+                </tr>
+                
+          
+             
+              
+            </tbody>
+        </table>
+
+
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Package Amount</th>
+                    <th>Company Details</th>
+                    <th>Interests</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                <tr onclick="openPopup('image5.jpg')">
+                    <td>AM.SC.CSE12345</td>
+                    <td>Ananya Sharma</td>
+                    <td>₹15,00,000</td>
+                    <td>Future Tech Solutions</td>
+                    <td>Cybersecurity</td>
+                </tr>
+                <tr>
+                    <td>AM.PG.P2ECE54321</td>
+                    <td>Parth Patel</td>
+                    <td>₹12,00,000</td>
+                    <td>Innovate IT Services</td>
+                    <td>Embedded Systems</td>
+                </tr>
+
+
+                <tr>
+                    <td>AM.SC.S3CSE12346</td>
+                    <td>Aryan Singh</td>
+                    <td>₹18,00,000</td>
+                    <td>TechGenius Innovations</td>
+                    <td>Artificial Intelligence</td>
+                </tr>
+                <tr>
+                    <td>AM.MB.M3MKT65432</td>
+                    <td>Mohini Gupta</td>
+                    <td>₹14,00,000</td>
+                    <td>Market Dynamics</td>
+                    <td>Marketing</td>
+                </tr>
+             
+            </tbody>
+        </table>
+
+        <table id="table3">
+
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Package Amount</th>
+                    <th>Company Details</th>
+                    <th>Interests</th>
+                </tr>
+            </thead>
+
+            <tr onclick="openPopup('image5.jpg')">
+                <td>BN.SC.S3CSE12346</td>
+                <td>Aryan Singh</td>
+                <td>₹18,00,000</td>
+                <td>TechGenius Innovations</td>
+                <td>Artificial Intelligence</td>
+            </tr>
+            <tr>
+                <td>BN.MB.M3MKT65432</td>
+                <td>Mohini Gupta</td>
+                <td>₹14,00,000</td>
+                <td>Market Dynamics</td>
+                <td>Marketing</td>
+            </tr>
+            <tr>
+                <td>BN.PG.S3EEE98765</td>
+                <td>Sachin Verma</td>
+                <td>₹10,00,000</td>
+                <td>PowerTech Solutions</td>
+                <td>Renewable Energy</td>
+            </tr>
+            <tr>
+                <td>BN.SC.S3CSE22334</td>
+                <td>Sanya Yadav</td>
+                <td>₹16,00,000</td>
+                <td>CodeInnovate Tech</td>
+                <td>Software Development</td>
+            </tr>
+            <tr>
+                <td>BN.PG.P2CSE76543</td>
+                <td>Pranav Mishra</td>
+                <td>₹11,00,000</td>
+                <td>CyberShield Systems</td>
+                <td>Cybersecurity</td>
+            </tr>
+        </table>
+    </main>
+
+
+    
+    <div id="overlay" onclick="closePopup()">
+        <div id="popup-content">
+            <table>
+                <tr>
+                    <td id="image-container"><img src="assets/images/image5.jpg" alt="Pop-up Image"></td>
+
+                    <td>
+                        <div class="tweet-box">
+                            <div class="tweet-content">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="tweet-author" style="margin-left:100px;"><span>Arjun Kumar</span></div>
+                                        </td>
+                                        <td>
+                                            <a href="assets/images/image5.jpg" download="assets/images/image5.jpg"><img src="assets/images/download_icon.png" alt="ok" style="height:40px;width:auto;"></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <div class="tweet-text">
+                                    <ul>
+                                        <li>Studied in Amrita Vishwa Vidyapeedham</li>
+                                        <li>got placed in Wipro with a Package of 8,85,000</li>
+                                    </ul>
+                                    32-year-old whirlwindmind wrestles with algorithms and neural networks, pushing the boundaries of artificial intelligence; by night, she conquers literal mountains, scaling treacherous peaks with the same laser focus that she applies to her code. Sarah's ambition knows no bounds, her eyes twinkling with dreams of not just advancing technology, but ensuring its ethical evolution. In her, you'll find a rare blend of technical prowess and boundless humanity, a woman unafraid to challenge the present while boldly shaping the future.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        function showTable(tableId) {
+          
+            document.querySelectorAll('table').forEach(table => {
+                table.style.display = 'none';
+            });
+
+            
+            document.getElementById(tableId).style.display = 'table';
+        }
+
+
+        function openPopup(imageUrl) {
+            
+            document.getElementById('popup-content').src = imageUrl;
+            
+            
+            document.getElementById('overlay').style.display = 'flex';
+        }
+    
+        function closePopup() {
+         
+            document.getElementById('overlay').style.display = 'none';
+        }
+   
+   </script>
+      <div style="text-align: center; margin-top: 20px;">
+            <header>
+                <a href="  http://localhost/dbms/upload.php" target="_blank" class="upload-button">Student Table</a>
+                <a href=" http://localhost/dbms/display.php" target="_blank" class="upload-button">View Student Table</a>
+            </header>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+                <header>
+                    <a href=" http://localhost/company/create.php" target="_blank" class="upload-button">Company Table</a>
+                    <a href=" http://localhost/company/view.php" target="_blank" class="upload-button">View Company Table</a>
+                </header>
+            </div>
+           
+
+            <div style="text-align: center; margin-top: 20px;">
+                    <header>
+                        <a href=" http://localhost/placement/add.php" target="_blank" class="upload-button">Placements Table</a>
+                        <a href=" http://localhost/placement/display.php" target="_blank" class="upload-button">View Placements Table</a>
+                    </header>
+                </div>
+                
+        <div style="text-align: center; margin-top: 20px;">
+                <header>
+                    <a href=" http://localhost/application/upload.php" target="_blank" class="upload-button">Applications Table</a>
+                    <a href=" http://localhost/application/show.php" target="_blank" class="upload-button">View Applications Table</a>
+                </header>
+            </div>
+
+            
+        <div style="text-align: center; margin-top: 20px;">
+                <header>
+                    <a href=" http://localhost/salary_details/new.php" target="_blank" class="upload-button">Salary Table</a>
+                    <a href=" http://localhost/salary_details/newview.php" target="_blank" class="upload-button">View Salary Table</a>
+                </header>
+            </div>
+</body>
+</html>

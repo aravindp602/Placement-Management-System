@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amrita Placement Platform</title>
+    
+    <style>
+        body {
+  background-image: url("assets/images/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+        header {
+           
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+        main {
+            padding: 20px;
+            opacity: 0.7;
+        }
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #0066cc;
+        }
+        select {
+            padding: 10px;
+            border: 1px solid #0066cc;
+            border-radius: 5px;
+        }
+        footer {
+           
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="assets/images/logo.png">
+        <nav>
+            <ul>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://in.linkedin.com/">Job Listings</a></li>
+                <li><a href="new.html">Dashboard</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Welcome to Our Dashboard</h2>
+            <p>Welcome to the Amrita Placement Platform dashboard. Here, you can manage your job applications, track your progress, and explore new job opportunities.</p>
+            <h2 style="color: #0066cc;">Placement</h2>
+            <p>
+                The following graph represents the placement percentage in Amrita for the past years.
+            </p>
+            <img src="assets/images/graph.jpg">
+            
+            <p>
+                Sector-wise Report.
+            </p>
+            <img src="assets/images/pie.jpg">
+        </section>
+
+        <section id="about as">
+            <h2>About Us</h2>
+            <p>
+                Amrita Vishwa Vidyapeetham, Coimbatore campus, conferred degrees upon a total of 2077 students during its 20th convocation ceremony. 
+                Among these graduates, 750 were female and 1327 were male The majority of students, 1120 in number, were from the B.Tech stream, 
+                followed by M.Tech (326), MBA (132), Integrated MSc. (121), B.Sc (Hon) Agriculture (117), MSc. (72), and B.A (44) programs.<br><br>
+                <b>Around 94% of eligible Amrita Vishwa Vidyapeetham, Coimbatore students got placed this year for B.Tech CBE and 65% for M.Tech CBE campus.
+                 The average annual salary for students passing out batch 2023 as on date is 9.6 LPA for BTech and 8.96 LPA for MTech. 
+                 The highest salary offered for 2023 batch as on date is 56 LPA.<br>
+            </p>
+        </section>
+
+        <section id="job-listings">
+        <h2>Job Listings</h2>
+        <a href="internship.html" style="color: black;">Internship</a> &nbsp;
+        <a href="part-time.html" style="color: black;">PartTime</a> &nbsp;
+        <a href="full time.html" style="color: black;">FullTime</a>
+        </section>
+
+        <section id="filters">
+            <h2>Filters</h2>
+            <label for="location-filter">Location:</label>
+            <select id="location-filter">
+                <option value="all">All Locations</option>
+                <option value="new-york">New York</option>
+                <option value="san-francisco">San Francisco</option>
+                <option value="los-angeles">Los Angeles</option>
+            </select>&nbsp;&nbsp;&nbsp;
+            <label for="category-filter">Category:</label>
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+                <option value="internship">Internship</option>
+                <option value="part-time">Part-Time</option>
+                <option value="full-time">Full-Time</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            <button id="apply-filters">Search</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Amrita Placement Platform</p>
+        <a href="https://intranet.cb.amrita.edu" style="color: white;">Amrita Placement</a>
+    </footer>
+    
+
+</body>
+</html>

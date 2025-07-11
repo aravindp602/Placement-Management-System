@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni InfoBase</title>
+    <!-- jQuery is not used in the script, so it can be removed if not needed elsewhere -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #3494e6, #ec6ead);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Allows images to wrap on smaller screens */
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .gallery-item img {
+            height: 300px;
+            width: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        /* ---- Overlay and Pop-up Styles ---- */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #popup-content {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+        }
+        #image-container img {
+            max-height: 500px;
+            width: auto;
+            border-radius: 10px;
+        }
+        .tweet-box {
+            display: flex;
+            flex-direction: column;
+            color: #333;
+            padding: 20px;
+            margin-left: 25px;
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            width: 400px; /* Fixed width for consistency */
+        }
+        .tweet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .tweet-author {
+            font-weight: bold;
+            font-size: 24px;
+            color: #3494e6;
+        }
+        .tweet-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .tweet-text ul {
+            padding-left: 20px;
+        }
+        /* ---- Button Styles ---- */
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        a.action-button {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #5cb85c;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        a.action-button:hover {
+            background-color: #4a9d4a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>ALUMNI INFOBASE</h1>
+
+    <div class="gallery">
+        <div class="gallery-item">
+            <!-- This is dynamic now. We pass all info needed for the popup right here -->
+            <img src="assets/images/image3.jpg" alt="Alumni Sarah Miller" onclick="openPopup('assets/images/image5.jpg', 'Sarah Miller', '56 LPA')">
+        </div>
+        <div class="gallery-item">
+            <img src="assets/images/image2.jpg" alt="Alumni Alex Johnson" onclick="openPopup('assets/images/img.webp', 'Alex Johnson', '48 LPA')">
+        </div>
+                <div class="gallery-item">
+            <img src="assets/images/image.jpg" alt="Alumni Sam Johnson" onclick="openPopup('assets/images/img.webp', 'Sam Johnson', '48 LPA')">
+        </div>
+
+                <div class="gallery-item">
+            <img src="assets/images/image4.jpg" alt="Alumni Sanjana Thomas" onclick="openPopup('assets/images/img.webp', 'Sanjana Thomas', '48 LPA')">
+        </div>
+        <!-- To add more alumni, just copy and paste the line above and change the details -->
+    </div>
+
+    <!-- The overlay is now a generic template that will be filled by JavaScript -->
+    <div id="overlay" onclick="closePopup()">
+        <!-- Stop propagation prevents the popup from closing when you click inside it -->
+        <div id="popup-content" onclick="event.stopPropagation();">
+            <div id="image-container">
+                <img id="popup-image" src="" alt="Alumni Pop-up Image">
+            </div>
+            <div class="tweet-box">
+                <div class="tweet-header">
+                    <span id="popup-author" class="tweet-author"></span>
+                    <a id="download-link" href="#" download>
+                        <img src="assets/images/download_icon.png" alt="Download Icon" style="height: 30px; width: auto;">
+                    </a>
+                </div>
+                <div class="tweet-text">
+                    <ul>
+                        <li>Studied at Amrita Vishwa Vidyapeetham</li>
+                        <li id="placement-details"></li>
+                    </ul>
+                    <p>
+                        A dedicated and ambitious professional who graduated from Amrita, now making significant contributions in the tech industry. Known for a blend of technical prowess and boundless humanity, unafraid to challenge the present while boldly shaping the future.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload and Download buttons linking to your backend PHP scripts -->
+    <div class="button-container">
+        <a href="http://localhost/phpscript/index.php" target="_blank" class="action-button">Upload Resume</a>
+        <a href="http://localhost/phpscript/download.php" target="_blank" class="action-button">Download Resume</a>
+    </div>
+
+    <script>
+        // Get references to the popup elements once
+        const overlay = document.getElementById('overlay');
+        const popupImage = document.getElementById('popup-image');
+        const popupAuthor = document.getElementById('popup-author');
+        const placementDetails = document.getElementById('placement-details');
+        const downloadLink = document.getElementById('download-link');
+
+        /**
+         * Opens the popup and populates it with dynamic data.
+         * @param {string} imageUrl - The URL of the image to display.
+         * @param {string} authorName - The name of the alumnus.
+         * @param {string} packageInfo - The placement package details.
+         */
+        function openPopup(imageUrl, authorName, packageInfo) {
+            // Set the content of the popup dynamically
+            popupImage.src = imageUrl;
+            popupImage.alt = `Alumni ${authorName}`;
+            popupAuthor.textContent = authorName;
+            placementDetails.textContent = `Placed with a package of ${packageInfo}`;
+            downloadLink.href = imageUrl;
+            downloadLink.download = `${authorName}_Profile.jpg`;
+
+            // Display the overlay
+            overlay.style.display = 'flex';
+        }
+
+        /**
+         * Closes the popup overlay.
+         */
+        function closePopup() {
+            overlay.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

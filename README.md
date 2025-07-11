@@ -24,28 +24,3 @@ A web-based platform designed to manage student placements at Amrita Vishwa Vidy
 
 ---
 
-## ⚙️ Local Setup and Installation
-
-To run this project locally, follow these steps:
-
-1.  **Prerequisites:**
-    *   Make sure you have a local server environment like [XAMPP](https://www.apachefriends.org/index.html) installed and running the **Apache** module.
-
-2.  **Clone the Repository:**
-    ```sh
-    git clone https://github.com/your-username/placement-management-system.git
-    ```
-
-3.  **Place in `htdocs`:**
-    *   Move the cloned `placement-management-system` folder into the `htdocs` directory inside your XAMPP installation folder (e.g., `C:/xampp/htdocs/`).
-
-4.  **Run the Application:**
-    *   Open your web browser and navigate to the project's login page:
-    *   `http://localhost/placement-management-system/login.html`
-
-5.  **Backend Setup (Future Step):**
-    *   Place your PHP files into the `/backend` directory.
-    *   Set up a MySQL database (e.g., `placement_db`) using phpMyAdmin.
-    *   Ensure your PHP scripts connect correctly to this database.
-
----

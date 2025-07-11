@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #2196F3, #E91E63);
+            color: black;
+        }
+
+        .a {
+            padding-right: 70px;
+            padding-left: 80px;
+            padding-top: 20px;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: auto;
+            margin-top: 200px;
+            margin-bottom: 200px;
+            padding: 20px;
+            height: 350px;
+            width: 52%;
+            margin-top: 100px;
+            border-radius: 40px;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        .save {
+            width: 150px;
+            height: 35px;
+            background-color: #FFB84C;
+            border-radius: 35px;
+            color: white;
+            font-size: medium;
+            border-width: 0px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Profile</h1>
+    <form action="new.html" method="post">
+        <div class="login-container">
+            <table>
+                <tr>
+                    <td class="a">
+                        <label for="EN">Enter your Name:</label>
+                        <input type="text" name="EN" id="EN" required>
+                    </td>
+                    <td class="a">
+                        <label for="RN">Enter Your Roll Number:</label><br>
+                        <input type="text" name="RN" id="RN" placeholder="CB.EN.U4CSE22001" required></td>
+                </tr>
+                <tr>
+                    <td class="a">
+                        <p>Gender:</p>
+                        <label for="G">Male</label>
+                        <input type="radio" name="G" id="G" value="Male">
+                        <label for="G">Female</label>
+                        <input type="radio" name="G" id="G" value="Female">
+                    </td>
+                    <td class="a">
+                        <label for="C">Enter Your CGPA:</label>
+                        <input type="number" id="C" min="6.5" max="10" required><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="a">
+                        <label for="Text">About Your Skill:</label>
+                        <textarea rows="5" cols="30"></textarea>
+                    </td>
+                    <td class="a">
+                        <label for="Ach">Achievements:</label>
+                        <textarea rows="5" cols="30"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="save">SUBMIT</button>
+                    </td>
+                    <td>
+                        <button type="reset" class="save">CLEAR</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
